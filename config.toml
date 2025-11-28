@@ -1,7 +1,7 @@
 [files]
-out_dir = "output"
-templates = ["swaync.css.j2", "waybar.css.j2"]
+templates = ["swaync.css.j2", "waybar.css.j2", "hyprland.conf.j2"]
+final_dir = "/home/bmacdonald/.config/themes/"
 
 [colors]
-count = 8
+count = 9
 quality = 1
