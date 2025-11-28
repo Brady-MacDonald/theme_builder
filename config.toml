@@ -1,5 +1,5 @@
 [files]
-templates = ["swaync.css.j2", "waybar.css.j2", "hyprland.conf.j2"]
+templates = ["swaync.css", "waybar.css", "hyprland.conf"]
 final_dir = "/home/bmacdonald/.config/themes/"
 
 [colors]
