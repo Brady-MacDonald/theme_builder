@@ -1,0 +1,7 @@
+[files]
+out_dir = "output"
+templates = ["swaync.css.j2", "waybar.css.j2"]
+
+[colors]
+count = 8
+quality = 1
