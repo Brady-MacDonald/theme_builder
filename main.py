@@ -44,22 +44,7 @@ def parse_args():
         "--verbose", "-v", action="store_true", help="Enable verbose terminal output"
     )
 
-    parser.add_argument("--shift", "-s", help="Do you want to shift the colors")
-
     return parser.parse_args()
-
-
-def get_img_path() -> Path:
-    if len(sys.argv) < 2:
-        print("Usage: main.py <image>")
-        sys.exit(2)
-
-    img_path = Path(sys.argv[1])
-    if not img_path.exists():
-        print(f"Error: File does not exist: {img_path}")
-        sys.exit(1)
-
-    return img_path
 
 
 def get_colors(image: Path, quality: int, count: int):
@@ -67,12 +52,10 @@ def get_colors(image: Path, quality: int, count: int):
     print(f"    → quality={quality}, count={count}")
 
     thief = ColorThief(image)
-    dominant = thief.get_color(quality)
     palette = thief.get_palette(color_count=count, quality=quality)
 
     print("[✓] Color extraction complete")
     return {
-        "dominant": dominant,
         "palette": palette,
     }
 
@@ -135,7 +118,7 @@ def main():
     for template_name in files_conf["templates"]:
         templates = render_template(template_env, template_name, colors)
 
-        template_stem = Path(template_name).name.replace(".j2", "")
+        template_stem = Path(template_name).name
         out_file = out_path / template_stem
 
         save_file(out_file, templates)
